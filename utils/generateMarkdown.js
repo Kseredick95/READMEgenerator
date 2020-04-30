@@ -1,8 +1,9 @@
 function generateMarkdown(data) {
-  return `
-# ${data.title}
+  console.log("im working")
+  //   return `
+  // # ${data.title}
 
-`;
+  // `;
 }
 
 module.exports = generateMarkdown;
