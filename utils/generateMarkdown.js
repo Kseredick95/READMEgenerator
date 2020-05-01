@@ -31,7 +31,7 @@ ${answers.test}
 ## Questions
 Contact author at this email : ${data.email}
 
-<img src="${data.avatar_url}" alt="Author_img" srcset="${data.avatar_url}">
+![Alt text](${data.avatar_url})
 
 `;
 }

@@ -1,8 +1,8 @@
 
-# ReadMe Generator
+# Readme Genterator
 
 ## Description
-Fill out the prompts to generate a ReadME markdown file
+Fill out the prompts to generate a Readme markdown file
 
 ## Table of Contents
 * [Installation](#installation)
@@ -29,5 +29,5 @@ n/a
 ## Questions
 Contact author at this email : null
 
-<img src="https://avatars1.githubusercontent.com/u/58563108?v=4" alt="Author_img" srcset="https://avatars1.githubusercontent.com/u/58563108?v=4">
+![Alt text](https://avatars1.githubusercontent.com/u/58563108?v=4)
 
