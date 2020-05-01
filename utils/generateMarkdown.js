@@ -1,4 +1,4 @@
-function generateMarkdown(answers , data) {
+function generateMarkdown(answers , data, badges) {
   
   return `
 # ${answers.title}
@@ -12,6 +12,8 @@ ${answers.description}
 * [License](#license)
 * [Contributors](#contributors)
 * [Test](#test)
+* [Questions](#questions)
+* [Badges](#badges)
 
 ## Installation
 ${answers.install}
@@ -33,6 +35,8 @@ Contact author at this email : ${data.email}
 
 ![Alt text](${data.avatar_url})
 
+## Badges
+${badges}
 `;
 }
 

@@ -5,6 +5,39 @@ const generateMarkdown = require("./utils/generateMarkdown.js")
 const axios = require("axios");
 
 
+const {renderBadges} = require("badges")
+ 
+// Listing of badges to output
+const list = [
+    // Development Badges
+    'npmversion',
+    'npmdownloads',
+]
+ 
+// Configuration for the badges
+const config = {
+    npmPackageName: 'badges',
+ 
+    saucelabsUsername: 'bevry',
+    
+}
+
+// Options for rendering the badges
+const options = {
+    // Filter Category
+    // When set to a string, will only render badges from the list that of the specified category
+    // Values can be 'development', 'testing', 'funding', or 'social'
+    // E.g. to render only funding badges, set to 'funding'
+    filterCategory: false,
+ 
+    // Filter Scripts
+    // When true, do not render any badges from the list that are scripts
+    filterScripts: false,
+}
+
+const result = renderBadges(list, config, options)
+
+
 inquirer.prompt([
     {
         type: "input",
@@ -50,7 +83,7 @@ inquirer.prompt([
 
     const data = await getUser(answers.username)
 
-    const fileName = generateMarkdown(answers, data);
+    const fileName = generateMarkdown(answers, data, result);
 
     writeToFile(fileName)
 })
