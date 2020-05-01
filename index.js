@@ -1,7 +1,9 @@
 const inquirer = require("inquirer")
 const fs = require("fs")
-const api = require("./utils/api.js")
+const getUser = require("./utils/getUser.js")
 const generateMarkdown = require("./utils/generateMarkdown.js")
+const axios = require("axios");
+
 
 inquirer.prompt([
     {
@@ -25,9 +27,9 @@ inquirer.prompt([
         message: "What is needed for installation?"
     },
     {
-        type : "input",
-        name : "usage",
-        message : "How is the code used?"
+        type: "input",
+        name: "usage",
+        message: "How is the code used?"
     },
     {
         type: "input",
@@ -44,15 +46,13 @@ inquirer.prompt([
         name: "test",
         message: "Which program is used for testing?"
     }
-]).then(data => {
+]).then(async function (answers) {
 
-    const username = data.username
-    api.getUser(username);
+    const data = await getUser(answers.username)
 
-    generateMarkdown(data);
+    const fileName = generateMarkdown(answers, data);
 
-    writeToFile(fileName);
-
+    writeToFile(fileName)
 })
     .catch(error => {
         if (error.isTtyError) {
@@ -61,12 +61,11 @@ inquirer.prompt([
         }
     });//End prompt
 
-function writeToFile(fileName, data) {
-
+function writeToFile(fileName) {
+    fs.writeFile("README.md", fileName, "utf8", function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Success")
+    })
 }
-
-function init() {
-    
-}
-
-init();

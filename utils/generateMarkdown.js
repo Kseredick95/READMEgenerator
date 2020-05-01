@@ -1,10 +1,10 @@
-function generateMarkdown(data) {
-  console.log(data)
+function generateMarkdown(answers , data) {
+  
   return `
-# ${data.title}
+# ${answers.title}
 
 ## Description
-${data.description}
+${answers.description}
 
 ## Table of Contents
 * [Installation](#installation)
@@ -14,19 +14,24 @@ ${data.description}
 * [Test](#test)
 
 ## Installation
-${data.install}
+${answers.install}
 
 ## Usage
-${data.usage}
+${answers.usage}
 
 ## License
-${data.license}
+${answers.license}
 
 ## Contributors
-${data.contributors}
+${answers.contributors}
 
 ## Test
-${data.test}
+${answers.test}
+
+## Questions
+Contact author at this email : ${data.email}
+
+<img src="${data.avatar_url}" alt="Author_img" srcset="${data.avatar_url}">
 
 `;
 }
