@@ -1,5 +1,4 @@
 const axios = require("axios");
-const generateMarkdown = require("./generateMarkdown.js")
 
 const api = {
 
@@ -7,7 +6,6 @@ const api = {
 
     const queryURL = `https://api.github.com/users/${username}`;
 
-    console.log(username)
 
     axios.get(queryURL).then(function (res){
 
@@ -15,9 +13,10 @@ const api = {
       
       const avatar = res.data.avatar_url;
 
-      generateMarkdown(email, avatar);
+      return(email , avatar);
     })
   }
+
 };
 
 module.exports = api;
