@@ -25,9 +25,6 @@ MIT
 ## Contributors
 kseredick95
 
-## Test
-node index.js
-
 ## Questions
 Contact author at this email : null
 
